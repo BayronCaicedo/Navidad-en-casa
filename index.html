@@ -3,21 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navidad en Casa</title>
+  <meta name="description" content="Navidad en Casa - Decoraciones navideñas artesanales hechas a mano para cada rincón del hogar.">
+  <title>Navidad en Casa | Decoraciones artesanales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Navidad en Casa</h1>
-    <p>Decoraciones navideñas hechas a mano para el hogar.</p>
+  <header class="site-header">
+    <div class="topbar container">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <span class="brand-icon" aria-hidden="true">⌂</span>
+        <span>
+          <strong>Navidad en Casa</strong>
+          <small>Decoraciones hechas a mano</small>
+        </span>
+      </a>
+
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="Buscar productos..." aria-label="Buscar productos">
+        <button type="button" aria-label="Buscar">⌕</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="#contacto" class="header-action" aria-label="Mi cuenta">♙<span>Mi cuenta</span></a>
+        <a href="pages/carrito.html" class="header-action cart-link" aria-label="Carrito de compras">
+          ♧<span>Carrito</span><b id="cartCount">0</b>
+        </a>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <div class="container nav-content">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a class="active" href="index.html">Inicio</a>
+          <a href="pages/productos.html">Categorías</a>
+          <a href="#categorias">Decora tu hogar</a>
+          <a href="#promociones">Promociones</a>
+          <a href="pages/nosotros.html">Nosotros</a>
+          <a href="pages/contacto.html">Contacto</a>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Hecho a mano, hecho con amor, para su hogar</h2>
-      <p>Próximamente encontrará aquí nuestro catálogo de productos navideños artesanales.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Colección navideña artesanal</p>
+          <h1 id="hero-title">Hecho a mano,<br><span>hecho con amor,</span><br>para tu hogar.</h1>
+          <p class="hero-text">Detalles únicos creados para convertir cada espacio en un rincón cálido, especial y lleno de espíritu navideño.</p>
+          <a class="btn btn-primary" href="pages/productos.html">Ver productos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Beneficios principales">
+      <div class="container trust-grid">
+        <article class="trust-item"><span>♡</span><div><strong>Hecho a mano</strong><p>Cada pieza es única y elaborada con amor.</p></div></article>
+        <article class="trust-item"><span>☆</span><div><strong>Diseños exclusivos</strong><p>Creaciones originales que no encontrarás en otro lugar.</p></div></article>
+        <article class="trust-item"><span>♧</span><div><strong>Materiales de calidad</strong><p>Seleccionamos materiales duraderos y de buen acabado.</p></div></article>
+        <article class="trust-item"><span>▣</span><div><strong>Envíos seguros</strong><p>Empacamos cada pedido con cuidado.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section categories-section" id="categorias">
+      <div class="container">
+        <div class="section-heading">
+          <span class="ornament">❧</span>
+          <div><p class="section-kicker">Ideas para cada espacio</p><h2>Decora cada rincón de tu hogar</h2></div>
+          <span class="ornament">❧</span>
+        </div>
+
+        <div class="categories-grid">
+          <a class="category-card" href="pages/productos.html?categoria=sala"><img src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=500&q=80" alt="Decoración navideña para sala"><span>Sala</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=mesa"><img src="https://images.unsplash.com/photo-1545048702-79362596cdc9?auto=format&fit=crop&w=500&q=80" alt="Decoración navideña para mesa"><span>Mesa</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=sofa"><img src="https://images.unsplash.com/photo-1608755728617-aefab37d2edd?auto=format&fit=crop&w=500&q=80" alt="Cojines navideños para sofá"><span>Sofá</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=sillas"><img src="https://images.unsplash.com/photo-1543258103-a62bdc069871?auto=format&fit=crop&w=500&q=80" alt="Decoración para sillas del comedor"><span>Sillas</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=puertas"><img src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=500&q=80" alt="Corona navideña para puerta"><span>Puertas</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=cocina"><img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=500&q=80" alt="Textiles navideños para cocina"><span>Cocina</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=bano"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=500&q=80" alt="Decoración navideña para baño"><span>Baño</span></a>
+          <a class="category-card" href="pages/productos.html?categoria=arbol"><img src="https://images.unsplash.com/photo-1482638591678-a11589a805f2?auto=format&fit=crop&w=500&q=80" alt="Decoración para pie de árbol"><span>Pie del árbol</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section">
+      <div class="container">
+        <div class="section-heading simple"><div><p class="section-kicker">Favoritos de temporada</p><h2>Productos destacados</h2></div></div>
+
+        <div class="products-layout">
+          <div class="products-grid" id="featuredProducts">
+            <article class="product-card" data-name="Muñeco de nieve tejido a mano">
+              <div class="product-image"><span class="badge">Artesanal</span><img src="https://images.unsplash.com/photo-1608459323350-408a03f49173?auto=format&fit=crop&w=600&q=80" alt="Muñeco navideño artesanal"></div>
+              <div class="product-info"><p class="product-category">Sala</p><h3>Muñeco de nieve tejido a mano</h3><strong>$45.000</strong><button class="btn btn-small add-cart" data-product="Muñeco de nieve tejido a mano">Agregar</button></div>
+            </article>
+
+            <article class="product-card" data-name="Centro de mesa navideño">
+              <div class="product-image"><span class="badge">Nuevo</span><img src="https://images.unsplash.com/photo-1511268011861-691ed210aae8?auto=format&fit=crop&w=600&q=80" alt="Centro de mesa navideño"></div>
+              <div class="product-info"><p class="product-category">Mesa</p><h3>Centro de mesa navideño</h3><strong>$65.000</strong><button class="btn btn-small add-cart" data-product="Centro de mesa navideño">Agregar</button></div>
+            </article>
+
+            <article class="product-card" data-name="Cojín navideño bordado">
+              <div class="product-image"><span class="badge">Favorito</span><img src="https://images.unsplash.com/photo-1608831540955-35094d48694a?auto=format&fit=crop&w=600&q=80" alt="Cojín navideño decorativo"></div>
+              <div class="product-info"><p class="product-category">Sofá</p><h3>Cojín navideño bordado</h3><strong>$55.000</strong><button class="btn btn-small add-cart" data-product="Cojín navideño bordado">Agregar</button></div>
+            </article>
+
+            <article class="product-card" data-name="Camino de mesa navideño">
+              <div class="product-image"><span class="badge">Artesanal</span><img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=600&q=80" alt="Camino de mesa navideño"></div>
+              <div class="product-info"><p class="product-category">Comedor</p><h3>Camino de mesa navideño</h3><strong>$60.000</strong><button class="btn btn-small add-cart" data-product="Camino de mesa navideño">Agregar</button></div>
+            </article>
+
+            <article class="product-card" data-name="Falda tejida para pie de árbol">
+              <div class="product-image"><span class="badge">Especial</span><img src="https://images.unsplash.com/photo-1544273677-c433136021d4?auto=format&fit=crop&w=600&q=80" alt="Decoración para pie del árbol de Navidad"></div>
+              <div class="product-info"><p class="product-category">Árbol</p><h3>Falda tejida para pie de árbol</h3><strong>$75.000</strong><button class="btn btn-small add-cart" data-product="Falda tejida para pie de árbol">Agregar</button></div>
+            </article>
+          </div>
+
+          <aside class="promo-card" id="promociones">
+            <p>¡Promo navideña!</p><strong>10% OFF</strong><span>en compras superiores a $150.000</span><a class="btn btn-light" href="pages/productos.html">Comprar ahora</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div class="container story-grid">
+        <div class="story-copy"><p class="section-kicker">Nuestra esencia</p><h2>Detalles hechos con manos que crean recuerdos</h2><p>Cada producto nace de un proceso artesanal en el que se combinan creatividad, dedicación y el deseo de llevar un poco de magia navideña a cada hogar.</p><a class="text-link" href="pages/nosotros.html">Conoce nuestra historia →</a></div>
+        <div class="story-points"><div><strong>100%</strong><span>Hecho a mano</span></div><div><strong>Local</strong><span>Talento y trabajo artesanal</span></div><div><strong>Único</strong><span>Piezas con identidad propia</span></div></div>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand"><h2>Navidad en Casa</h2><p>Decoraciones artesanales para llenar tu hogar de magia.</p><div class="socials"><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="WhatsApp">◉</a></div></div>
+      <div><h3>Enlaces</h3><a href="index.html">Inicio</a><a href="pages/productos.html">Productos</a><a href="pages/nosotros.html">Nosotros</a><a href="pages/contacto.html">Contacto</a></div>
+      <div><h3>Ayuda</h3><a href="#">Preguntas frecuentes</a><a href="#">Políticas de envío</a><a href="#">Cambios y devoluciones</a><a href="#">Términos y condiciones</a></div>
+      <div><h3>Contacto</h3><p>WhatsApp: +57 300 000 0000</p><p>navidadencasa@email.com</p><p>Colombia</p></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© <span id="currentYear"></span> Navidad en Casa. Todos los derechos reservados.</span><span>Hecho con cariño para hogares que aman la Navidad.</span></div></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/app.js"></script>
 </body>
