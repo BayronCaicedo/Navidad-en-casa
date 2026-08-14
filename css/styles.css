@@ -1,12 +1,189 @@
-/* Estilos generales - Navidad en Casa */
+/* Estilos generales - Navidad en Casa 
+/* =====================================
+   NAVIDAD EN CASA
+   ESTILOS PRINCIPALES
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+
+/* =====================================
+   VARIABLES DE COLOR
+===================================== */
+
+:root {
+    --verde: #123c2c;
+    --verde-claro: #1f5a43;
+    --rojo: #b3262d;
+    --rojo-oscuro: #8f1d24;
+    --dorado: #d4af37;
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
+    --gris: #666666;
+    --negro: #222222;
+}
+
+
+/* =====================================
+   CONFIGURACIÓN GENERAL
+===================================== */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--negro);
+    line-height: 1.6;
 }
+
+
+/* =====================================
+   ENCABEZADO
+===================================== */
+
+header {
+    background-color: var(--verde);
+
+    color: var(--blanco);
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    border-bottom: 5px solid var(--dorado);
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 3rem;
+
+    color: var(--dorado);
+
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+
+    color: var(--blanco);
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
+
+main {
+    min-height: 500px;
+
+    padding: 70px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================
+   SECCIÓN PRINCIPAL
+===================================== */
+
+section {
+    background-color: var(--blanco);
+
+    max-width: 900px;
+
+    width: 100%;
+
+    padding: 60px 40px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 2.2rem;
+
+    color: var(--verde);
+
+    margin-bottom: 20px;
+}
+
+section p {
+    color: var(--gris);
+
+    font-size: 1rem;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================
+   DISEÑO RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 2.3rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+
+    section {
+        padding: 40px 25px;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+}
+
+
+/* =====================================
+   CELULARES PEQUEÑOS
+===================================== */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 30px 20px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+} 
