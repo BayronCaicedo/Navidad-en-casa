@@ -1,0 +1,154 @@
+/* Ajustes finales del configurador de producto */
+
+/* El modal puede desplazarse solo cuando la altura de pantalla lo exige */
+.modal:has(.product-modal-grid) {
+  width: min(1160px, calc(100% - 32px));
+  max-width: 1160px;
+  max-height: calc(100dvh - 28px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(18, 60, 44, .45) transparent;
+}
+
+.modal:has(.product-modal-grid)::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal:has(.product-modal-grid)::-webkit-scrollbar-thumb {
+  background: rgba(18, 60, 44, .38);
+  border-radius: 999px;
+}
+
+.product-modal-grid {
+  grid-template-columns: minmax(370px, .92fr) minmax(470px, 1.08fr);
+  gap: 32px;
+  align-items: start;
+}
+
+/* La foto queda limpia. Las variantes se comunican en la ficha, no mediante filtros artificiales. */
+.product-modal-image {
+  position: sticky;
+  top: 0;
+  height: min(620px, calc(100dvh - 90px));
+  min-height: 500px;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.product-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: none !important;
+  filter: none !important;
+}
+
+.product-modal-image::before,
+.product-modal-image::after {
+  display: none !important;
+}
+
+.product-modal-content {
+  padding-right: 4px;
+  justify-content: flex-start;
+}
+
+.product-modal-description {
+  margin-bottom: 10px;
+}
+
+.product-features {
+  margin-bottom: 12px;
+}
+
+.variant-group {
+  margin: 10px 0;
+}
+
+.variant-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.variant-option {
+  min-height: 42px;
+}
+
+/* Resumen final tipo ecommerce */
+.customizer-summary {
+  position: relative;
+  margin: 12px 0 10px;
+  padding: 14px 16px;
+  border: 1px solid #e7d3aa;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fffaf0, #fffdf8);
+  color: #5f523f;
+  box-shadow: 0 7px 20px rgba(76, 52, 27, .07);
+}
+
+.customizer-summary::before {
+  content: "Configuración elegida";
+  display: block;
+  margin-bottom: 5px;
+  color: var(--companion-green);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+#modalAddCart {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  min-height: 50px;
+  border: 2px solid #fffaf3;
+  box-shadow: 0 -8px 22px rgba(255, 250, 243, .95), 0 12px 24px rgba(18, 60, 44, .22);
+}
+
+/* La selección visual se enfatiza en los controles, que es donde realmente cambia la variante. */
+.variant-option.selected {
+  outline: 2px solid rgba(212, 175, 55, .42);
+  outline-offset: 2px;
+}
+
+.quantity-row {
+  margin-top: 14px;
+}
+
+@media (max-width: 960px) {
+  .product-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-modal-image {
+    position: relative;
+    top: auto;
+    height: 360px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .modal:has(.product-modal-grid) {
+    width: calc(100% - 18px);
+    max-height: calc(100dvh - 18px);
+    padding: 18px;
+  }
+
+  .product-modal-image {
+    height: 300px;
+  }
+
+  .variant-options {
+    grid-template-columns: 1fr;
+  }
+
+  #modalAddCart {
+    bottom: -1px;
+  }
+}
