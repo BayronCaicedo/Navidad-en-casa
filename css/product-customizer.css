@@ -1,0 +1,339 @@
+/* Mejoras visuales y personalizador de productos */
+
+:root {
+  --companion-green: #123c2c;
+  --companion-gold: #d4af37;
+}
+
+.section-heading h2,
+.story-copy h2,
+.modal h2,
+.drawer-header h2 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.brand strong {
+  color: var(--red);
+}
+
+.hero {
+  background:
+    linear-gradient(90deg, rgba(33, 15, 10, 0.84) 0%, rgba(33, 15, 10, 0.5) 42%, rgba(33, 15, 10, 0.08) 76%),
+    url("../assets/images/sala-navidad.png") center 48% / cover no-repeat;
+}
+
+.categories-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  padding: 0;
+  text-align: left;
+}
+
+.category-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.category-card:hover img,
+.category-card.active img {
+  transform: scale(1.045);
+}
+
+.category-card > span {
+  display: block;
+  padding: 14px 12px;
+  text-align: center;
+  color: var(--companion-green);
+  font-weight: 800;
+  background: #fff;
+}
+
+.products-layout {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.products-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-visual {
+  height: 235px;
+  background: #efe7dc;
+}
+
+.product-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.product-visual:hover img {
+  transform: scale(1.04);
+}
+
+.handmade-detail {
+  box-shadow: 0 4px 14px rgba(34, 24, 14, 0.12);
+}
+
+.promo-card {
+  background:
+    linear-gradient(rgba(123, 14, 14, 0.9), rgba(123, 14, 14, 0.96)),
+    url("../assets/images/mesa-navidad.png") center / cover no-repeat;
+}
+
+.product-modal-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) 1.1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.product-modal-image {
+  overflow: hidden;
+  min-height: 430px;
+  border-radius: 18px;
+  background: #f4ede3;
+  box-shadow: 0 12px 28px rgba(57, 39, 22, 0.12);
+}
+
+.product-modal-image img {
+  width: 100%;
+  height: 430px;
+  display: block;
+  object-fit: cover;
+}
+
+.product-modal-content .section-kicker {
+  margin-bottom: 6px;
+}
+
+.product-modal-content h2 {
+  margin-bottom: 8px;
+  color: var(--companion-green);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.product-modal-description {
+  margin: 14px 0 20px;
+  color: var(--muted);
+}
+
+.product-features {
+  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+  list-style: none;
+}
+
+.product-features li {
+  color: var(--green-dark);
+  font-size: 0.88rem;
+}
+
+.product-features li::before {
+  content: "✓";
+  margin-right: 8px;
+  color: var(--companion-gold);
+  font-weight: 900;
+}
+
+.variant-group {
+  margin: 18px 0;
+}
+
+.variant-title {
+  margin-bottom: 9px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--green-dark);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.variant-title span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.variant-option {
+  min-height: 40px;
+  padding: 8px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: #fff;
+  font-size: 0.79rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.variant-option:hover {
+  border-color: var(--companion-gold);
+  transform: translateY(-1px);
+}
+
+.variant-option.selected {
+  color: #fff;
+  border-color: var(--companion-green);
+  background: var(--companion-green);
+  box-shadow: 0 6px 16px rgba(18, 60, 44, 0.18);
+}
+
+.color-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.color-swatch {
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+
+.quantity-row {
+  margin: 22px 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.quantity-control {
+  display: inline-grid;
+  grid-template-columns: 38px 42px 38px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.quantity-control button,
+.quantity-control span {
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+
+.quantity-control button {
+  border: 0;
+  color: var(--green-dark);
+  background: #f8f4ee;
+  font-weight: 900;
+}
+
+.quantity-control span {
+  border-inline: 1px solid var(--border);
+  font-weight: 800;
+}
+
+.customizer-summary {
+  margin: 18px 0;
+  padding: 13px 15px;
+  border: 1px solid #ead9b9;
+  border-radius: 12px;
+  color: #5f523f;
+  background: #fff9ec;
+  font-size: 0.8rem;
+}
+
+.cart-item {
+  align-items: start;
+}
+
+.cart-item-art.cart-thumb {
+  overflow: hidden;
+  padding: 0;
+}
+
+.cart-item-art.cart-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-variants {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.order-variant {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+@media (max-width: 1100px) {
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-card {
+    min-height: 280px;
+  }
+
+  .product-modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-modal-image,
+  .product-modal-image img {
+    min-height: 0;
+    height: 320px;
+  }
+}
+
+@media (max-width: 560px) {
+  .categories-grid,
+  .products-grid,
+  .product-features {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card img {
+    height: 220px;
+  }
+
+  .variant-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .variant-option {
+    width: 100%;
+  }
+}
