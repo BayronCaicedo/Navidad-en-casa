@@ -1,0 +1,554 @@
+/* Mejoras visuales y personalizador de productos */
+
+:root {
+  --companion-green: #123c2c;
+  --companion-gold: #d4af37;
+}
+
+.section-heading h2,
+.story-copy h2,
+.modal h2,
+.drawer-header h2 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.brand strong {
+  color: var(--red);
+}
+
+.hero {
+  background:
+    linear-gradient(90deg, rgba(33, 15, 10, 0.84) 0%, rgba(33, 15, 10, 0.5) 42%, rgba(33, 15, 10, 0.08) 76%),
+    url("../assets/images/sala-navidad.png") center 48% / cover no-repeat;
+}
+
+.categories-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category-card {
+  padding: 0;
+  text-align: left;
+}
+
+.category-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.category-card:hover img,
+.category-card.active img {
+  transform: scale(1.045);
+}
+
+.category-card > span {
+  display: block;
+  padding: 14px 12px;
+  text-align: center;
+  color: var(--companion-green);
+  font-weight: 800;
+  background: #fff;
+}
+
+.products-layout {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+
+.products-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product-visual {
+  height: 235px;
+  background: #efe7dc;
+}
+
+.product-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.product-visual:hover img {
+  transform: scale(1.04);
+}
+
+.handmade-detail {
+  box-shadow: 0 4px 14px rgba(34, 24, 14, 0.12);
+}
+
+.promo-card {
+  background:
+    linear-gradient(rgba(123, 14, 14, 0.9), rgba(123, 14, 14, 0.96)),
+    url("../assets/images/mesa-navidad.png") center / cover no-repeat;
+}
+
+/* ===== Configurador horizontal ===== */
+.modal:has(.product-modal-grid) {
+  width: min(1120px, calc(100% - 38px));
+  max-width: 1120px;
+  max-height: calc(100dvh - 38px);
+  overflow: hidden;
+  padding: 26px;
+}
+
+.product-modal-grid {
+  display: grid;
+  grid-template-columns: minmax(390px, 0.95fr) minmax(430px, 1.05fr);
+  gap: 34px;
+  align-items: center;
+}
+
+.product-modal-image {
+  position: relative;
+  overflow: hidden;
+  height: min(610px, calc(100dvh - 110px));
+  min-height: 500px;
+  border-radius: 22px;
+  background: #f4ede3;
+  box-shadow: 0 18px 38px rgba(57, 39, 22, 0.16);
+  isolation: isolate;
+}
+
+.product-modal-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Tinte visual según el color seleccionado */
+.product-modal-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Rojo"].selected) .product-modal-image::before,
+.product-modal-grid:has([data-variant="color"][data-value="Beige y rojo"].selected) .product-modal-image::before,
+.product-modal-grid:has([data-variant="color"][data-value="Tradicional"].selected) .product-modal-image::before {
+  opacity: 0.2;
+  background: #a31515;
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Verde"].selected) .product-modal-image::before,
+.product-modal-grid:has([data-variant="color"][data-value="Verde y rojo"].selected) .product-modal-image::before {
+  opacity: 0.19;
+  background: #174d2b;
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Dorado"].selected) .product-modal-image::before {
+  opacity: 0.19;
+  background: #d4af37;
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Natural"].selected) .product-modal-image::before,
+.product-modal-grid:has([data-variant="color"][data-value="Beige"].selected) .product-modal-image::before {
+  opacity: 0.13;
+  background: #c9ab82;
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Tartán"].selected) .product-modal-image::before,
+.product-modal-grid:has([data-variant="color"][data-value="Tartán clásico"].selected) .product-modal-image::before {
+  opacity: 0.21;
+  background: linear-gradient(135deg, #781919 0 45%, #24452e 45% 60%, #781919 60%);
+}
+
+.product-modal-grid:has([data-variant="color"][data-value="Blanco"].selected) .product-modal-image img {
+  filter: brightness(1.09) saturate(0.86);
+}
+
+/* La medida seleccionada se representa con una escala sutil */
+.product-modal-grid:has(#sizeOptions .variant-option:nth-child(1).selected) .product-modal-image img {
+  transform: scale(0.94);
+}
+
+.product-modal-grid:has(#sizeOptions .variant-option:nth-child(2).selected) .product-modal-image img {
+  transform: scale(1);
+}
+
+.product-modal-grid:has(#sizeOptions .variant-option:nth-child(3).selected) .product-modal-image img {
+  transform: scale(1.075);
+}
+
+/* Etiqueta visual del diseño elegido */
+.product-modal-image::after {
+  content: "Diseño artesanal";
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  max-width: calc(100% - 36px);
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(18, 60, 44, 0.82);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: 0.25s ease;
+}
+
+.product-modal-grid:has([data-value="Árboles"].selected) .product-modal-image::after,
+.product-modal-grid:has([data-value="Árbol navideño"].selected) .product-modal-image::after,
+.product-modal-grid:has([data-value="Árbol"].selected) .product-modal-image::after {
+  content: "🎄 Diseño: Árbol navideño";
+}
+
+.product-modal-grid:has([data-value="Flores de Pascua"].selected) .product-modal-image::after,
+.product-modal-grid:has([data-value="Pascua"].selected) .product-modal-image::after {
+  content: "🌺 Diseño: Flores de Pascua";
+}
+
+.product-modal-grid:has([data-value="Renos"].selected) .product-modal-image::after {
+  content: "🦌 Diseño: Renos";
+}
+
+.product-modal-grid:has([data-value="Santa"].selected) .product-modal-image::after {
+  content: "🎅 Diseño: Santa";
+}
+
+.product-modal-grid:has([data-value="Moño"].selected) .product-modal-image::after,
+.product-modal-grid:has([data-value="Gran moño"].selected) .product-modal-image::after {
+  content: "🎀 Diseño: Moño navideño";
+}
+
+.product-modal-grid:has([data-value="Estrella"].selected) .product-modal-image::after {
+  content: "⭐ Diseño: Estrella";
+}
+
+.product-modal-grid:has([data-value="Corazón"].selected) .product-modal-image::after {
+  content: "♥ Diseño: Corazón";
+}
+
+.product-modal-grid:has([data-value="Piñas y frutos"].selected) .product-modal-image::after,
+.product-modal-grid:has([data-value="Clásica"].selected) .product-modal-image::after {
+  content: "🌲 Diseño: Clásico artesanal";
+}
+
+.product-modal-grid:has([data-value="Muñeco"].selected) .product-modal-image::after {
+  content: "☃ Diseño: Muñeco navideño";
+}
+
+.product-modal-grid:has([data-value="Copos"].selected) .product-modal-image::after {
+  content: "❄ Diseño: Copos de nieve";
+}
+
+.product-modal-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-modal-content .section-kicker {
+  margin-bottom: 4px;
+}
+
+.product-modal-content h2 {
+  margin-bottom: 5px;
+  color: var(--companion-green);
+  font-size: clamp(1.75rem, 2.7vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.product-modal-content .modal-price {
+  color: var(--red);
+  font-size: 1.35rem;
+}
+
+.product-modal-description {
+  margin: 8px 0 12px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.product-features {
+  margin: 0 0 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px 14px;
+  list-style: none;
+}
+
+.product-features li {
+  color: var(--green-dark);
+  font-size: 0.78rem;
+}
+
+.product-features li::before {
+  content: "✓";
+  margin-right: 7px;
+  color: var(--companion-gold);
+  font-weight: 900;
+}
+
+.variant-group {
+  margin: 9px 0;
+}
+
+.variant-title {
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--green-dark);
+  font-size: 0.79rem;
+  font-weight: 800;
+}
+
+.variant-title span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.variant-options {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 7px;
+}
+
+.variant-option {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 37px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--green-dark);
+  background: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.variant-option:hover {
+  border-color: var(--companion-gold);
+  transform: translateY(-1px);
+}
+
+.variant-option.selected {
+  color: #fff;
+  border-color: var(--companion-green);
+  background: var(--companion-green);
+  box-shadow: 0 6px 16px rgba(18, 60, 44, 0.18);
+}
+
+.color-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.color-swatch {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+
+.quantity-row {
+  margin: 11px 0 5px;
+  min-height: 48px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #ead9b9;
+  border-radius: 12px;
+  background: #fffaf0;
+}
+
+.quantity-row > strong::after {
+  content: " · puede llevar varias unidades";
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.quantity-control {
+  display: inline-grid;
+  grid-template-columns: 38px 46px 38px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(42, 31, 19, 0.07);
+}
+
+.quantity-control button,
+.quantity-control span {
+  height: 38px;
+  display: grid;
+  place-items: center;
+}
+
+.quantity-control button {
+  border: 0;
+  color: var(--green-dark);
+  background: #f8f4ee;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.quantity-control button:hover {
+  color: #fff;
+  background: var(--companion-green);
+}
+
+.quantity-control span {
+  border-inline: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.customizer-summary {
+  margin: 8px 0 10px;
+  padding: 10px 12px;
+  border: 1px solid #ead9b9;
+  border-radius: 10px;
+  color: #5f523f;
+  background: #fff9ec;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+#modalAddCart {
+  min-height: 45px;
+  box-shadow: 0 10px 22px rgba(18, 60, 44, 0.2);
+}
+
+.cart-item {
+  align-items: start;
+}
+
+.cart-item-art.cart-thumb {
+  overflow: hidden;
+  padding: 0;
+}
+
+.cart-item-art.cart-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-variants {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.order-variant {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+@media (max-width: 1100px) {
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-modal-grid {
+    grid-template-columns: minmax(320px, 0.9fr) minmax(390px, 1.1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 820px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-card {
+    min-height: 280px;
+  }
+
+  .modal:has(.product-modal-grid) {
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .product-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .product-modal-image {
+    min-height: 0;
+    height: 300px;
+  }
+
+  .variant-options {
+    flex-wrap: wrap;
+  }
+
+  .variant-option {
+    flex: 1 1 calc(33.333% - 7px);
+  }
+}
+
+@media (max-width: 560px) {
+  .categories-grid,
+  .products-grid,
+  .product-features {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card img {
+    height: 220px;
+  }
+
+  .product-modal-image {
+    height: 250px;
+  }
+
+  .variant-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .variant-option {
+    width: 100%;
+  }
+
+  .quantity-row {
+    align-items: flex-start;
+  }
+
+  .quantity-row > strong::after {
+    display: block;
+    margin-top: 2px;
+  }
+}
