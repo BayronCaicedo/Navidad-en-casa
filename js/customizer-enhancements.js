@@ -1,11 +1,12 @@
 // Mejoras finales del configurador: total dinámico y resumen claro
 
 document.addEventListener("DOMContentLoaded", () => {
-  const formatCOP = (value) => new Intl.NumberFormat("es-CO", {
-    style: "currency",
-    currency: "COP",
-    maximumFractionDigits: 0,
-  }).format(value);
+  const formatCOP = (value) =>
+    new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      maximumFractionDigits: 0,
+    }).format(value);
 
   const getCurrentProduct = () => {
     const modal = document.querySelector("#appModal");
@@ -26,16 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const price = Number(productCard.dataset.price || 0);
     const quantity = Number(modal.querySelector("#qtyValue")?.textContent || 1);
-    const size = modal.querySelector('[data-variant="size"].selected')?.dataset.value || "";
-    const color = modal.querySelector('[data-variant="color"].selected')?.dataset.value || "";
-    const design = modal.querySelector('[data-variant="design"].selected')?.dataset.value || "";
+    const size =
+      modal.querySelector('[data-variant="size"].selected')?.dataset.value || "";
+    const color =
+      modal.querySelector('[data-variant="color"].selected')?.dataset.value || "";
+    const design =
+      modal.querySelector('[data-variant="design"].selected')?.dataset.value || "";
     const summary = modal.querySelector("#customizerSummary");
     const addButton = modal.querySelector("#modalAddCart");
 
     if (summary) {
       summary.innerHTML = `
-        <div class="selection-summary-line"><strong>${size}</strong><span>${color}</span><span>${design}</span></div>
-        <div class="selection-total-line"><span>${quantity} ${quantity === 1 ? "unidad" : "unidades"} × ${formatCOP(price)}</span><strong>${formatCOP(price * quantity)}</strong></div>
+        <div class="selection-summary-line">
+          <strong>${size}</strong>
+          <span>${color}</span>
+          <span>${design}</span>
+        </div>
+        <div class="selection-total-line">
+          <span>${quantity} ${quantity === 1 ? "unidad" : "unidades"} × ${formatCOP(price)}</span>
+          <strong>${formatCOP(price * quantity)}</strong>
+        </div>
       `;
     }
 
@@ -45,22 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   document.addEventListener("click", (event) => {
-    if (
+    const relevantControl =
       event.target.closest(".variant-option") ||
       event.target.closest("#qtyMinus") ||
       event.target.closest("#qtyPlus") ||
-      event.target.closest(".open-product")
-    ) {
+      event.target.closest(".open-product");
+
+    if (relevantControl) {
       window.setTimeout(refreshCustomizerFooter, 0);
     }
   });
-
-  const observer = new MutationObserver(() => {
-    if (document.querySelector("#appModal.show #modalAddCart")) {
-      refreshCustomizerFooter();
-    }
-  });
-
-  const modalContent = document.querySelector("#modalContent");
-  if (modalContent) observer.observe(modalContent, { childList: true, subtree: true });
 });
