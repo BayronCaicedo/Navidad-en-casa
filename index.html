@@ -7,8 +7,9 @@
   <title>Navidad en Casa | Decoraciones artesanales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Great+Vibes&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/product-customizer.css">
 </head>
 <body>
   <header class="site-header">
@@ -25,9 +26,7 @@
 
       <div class="header-actions">
         <button class="header-action action-button" id="accountButton" type="button" aria-label="Mi cuenta">♙<span>Mi cuenta</span></button>
-        <button class="header-action action-button cart-link" id="cartButton" type="button" aria-label="Abrir carrito">
-          ♧<span>Carrito</span><b id="cartCount">0</b>
-        </button>
+        <button class="header-action action-button cart-link" id="cartButton" type="button" aria-label="Abrir carrito">♧<span>Carrito</span><b id="cartCount">0</b></button>
       </div>
     </div>
 
@@ -72,19 +71,23 @@
       <div class="container">
         <div class="section-heading">
           <span class="ornament">❧</span>
-          <div><p class="section-kicker">Ideas para cada espacio</p><h2>Decora cada rincón de tu hogar</h2><p class="section-description">Seleccione un espacio para descubrir ideas y productos relacionados.</p></div>
+          <div>
+            <p class="section-kicker">Ideas para cada espacio</p>
+            <h2>Decora cada rincón de tu hogar</h2>
+            <p class="section-description">Seleccione un espacio para descubrir ideas y productos relacionados.</p>
+          </div>
           <span class="ornament">❧</span>
         </div>
 
         <div class="categories-grid">
-          <button class="category-card category-filter" type="button" data-category="sala"><span class="category-art art-sala">🛋️</span><span>Sala</span></button>
-          <button class="category-card category-filter" type="button" data-category="mesa"><span class="category-art art-mesa">🕯️</span><span>Mesa</span></button>
-          <button class="category-card category-filter" type="button" data-category="sofa"><span class="category-art art-sofa">🧵</span><span>Sofá</span></button>
-          <button class="category-card category-filter" type="button" data-category="sillas"><span class="category-art art-sillas">🎀</span><span>Sillas</span></button>
-          <button class="category-card category-filter" type="button" data-category="puertas"><span class="category-art art-puertas">🎄</span><span>Puertas</span></button>
-          <button class="category-card category-filter" type="button" data-category="cocina"><span class="category-art art-cocina">🍪</span><span>Cocina</span></button>
-          <button class="category-card category-filter" type="button" data-category="bano"><span class="category-art art-bano">🧺</span><span>Baño</span></button>
-          <button class="category-card category-filter" type="button" data-category="arbol"><span class="category-art art-arbol">🎄</span><span>Pie del árbol</span></button>
+          <button class="category-card category-filter" type="button" data-category="sala"><img src="assets/images/sala-navidad.png" alt="Decoración navideña artesanal para sala"><span>Sala</span></button>
+          <button class="category-card category-filter" type="button" data-category="mesa"><img src="assets/images/mesa-navidad.png" alt="Mesa navideña decorada artesanalmente"><span>Mesa</span></button>
+          <button class="category-card category-filter" type="button" data-category="sofa"><img src="assets/images/sofa-navidad.png" alt="Sofá con cojines navideños bordados"><span>Sofá</span></button>
+          <button class="category-card category-filter" type="button" data-category="sillas"><img src="assets/images/sillas-navidad.png" alt="Sillas de comedor decoradas para Navidad"><span>Sillas</span></button>
+          <button class="category-card category-filter" type="button" data-category="puertas"><img src="assets/images/puerta-navidad.png" alt="Puerta decorada con corona navideña"><span>Puertas</span></button>
+          <button class="category-card category-filter" type="button" data-category="cocina"><img src="assets/images/cocina-navidad.png" alt="Cocina con textiles navideños artesanales"><span>Cocina</span></button>
+          <button class="category-card category-filter" type="button" data-category="bano"><img src="assets/images/bano-navidad.png" alt="Baño decorado con textiles navideños"><span>Baño</span></button>
+          <button class="category-card category-filter" type="button" data-category="arbol"><img src="assets/images/pie-arbol-navidad.png" alt="Pie de árbol con falda navideña artesanal"><span>Pie del árbol</span></button>
         </div>
       </div>
     </section>
@@ -92,45 +95,52 @@
     <section class="section featured-section" id="productos">
       <div class="container">
         <div class="products-heading-row">
-          <div class="section-heading simple"><div><p class="section-kicker">Favoritos de temporada</p><h2>Productos destacados</h2><p class="section-description" id="filterLabel">Una selección de nuestras creaciones artesanales.</p></div></div>
+          <div class="section-heading simple">
+            <div><p class="section-kicker">Favoritos de temporada</p><h2>Productos destacados</h2><p class="section-description" id="filterLabel">Una selección de nuestras creaciones artesanales.</p></div>
+          </div>
           <button class="clear-filter hidden" id="clearFilter" type="button">Ver todos ×</button>
         </div>
 
         <div class="products-layout">
           <div class="products-grid" id="featuredProducts">
-            <article class="product-card" data-id="snowman" data-name="Muñeco de nieve tejido a mano" data-category="sala" data-price="45000" data-art="☃️">
-              <button class="product-visual open-product" type="button" aria-label="Ver muñeco de nieve tejido a mano">
-                <span class="badge">Artesanal</span><span class="product-art product-art-snowman">☃️</span><span class="handmade-detail">Tejido · Hecho a mano</span>
-              </button>
-              <div class="product-info"><p class="product-category">Sala</p><h3>Muñeco de nieve tejido a mano</h3><strong>$45.000</strong><div class="product-actions"><button class="btn btn-small add-cart" type="button">Agregar</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            <article class="product-card" data-id="kit-sala" data-name="Kit decorativo navideño para sala" data-category="sala" data-price="89000" data-image="assets/images/sala-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Artesanal</span><img src="assets/images/sala-navidad.png" alt="Kit decorativo navideño para sala"><span class="handmade-detail">Textiles · Detalles hechos a mano</span></button>
+              <div class="product-info"><p class="product-category">Sala</p><h3>Kit decorativo navideño para sala</h3><strong>$89.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
             </article>
 
-            <article class="product-card" data-id="centerpiece" data-name="Centro de mesa navideño" data-category="mesa" data-price="65000" data-art="🕯️">
-              <button class="product-visual open-product" type="button" aria-label="Ver centro de mesa navideño">
-                <span class="badge">Nuevo</span><span class="product-art product-art-centerpiece">🕯️</span><span class="handmade-detail">Velas · Pino · Detalles rojos</span>
-              </button>
-              <div class="product-info"><p class="product-category">Mesa</p><h3>Centro de mesa navideño</h3><strong>$65.000</strong><div class="product-actions"><button class="btn btn-small add-cart" type="button">Agregar</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            <article class="product-card" data-id="camino-mesa" data-name="Camino de mesa navideño bordado" data-category="mesa" data-price="60000" data-image="assets/images/mesa-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Nuevo</span><img src="assets/images/mesa-navidad.png" alt="Camino de mesa navideño bordado"><span class="handmade-detail">Bordado · Acabado artesanal</span></button>
+              <div class="product-info"><p class="product-category">Mesa</p><h3>Camino de mesa navideño bordado</h3><strong>$60.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
             </article>
 
-            <article class="product-card" data-id="cushion" data-name="Cojín navideño bordado" data-category="sofa" data-price="55000" data-art="🧵">
-              <button class="product-visual open-product" type="button" aria-label="Ver cojín navideño bordado">
-                <span class="badge">Favorito</span><span class="product-art product-art-cushion"><span>🎄</span></span><span class="handmade-detail">Bordado · Tela suave</span>
-              </button>
-              <div class="product-info"><p class="product-category">Sofá</p><h3>Cojín navideño bordado</h3><strong>$55.000</strong><div class="product-actions"><button class="btn btn-small add-cart" type="button">Agregar</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            <article class="product-card" data-id="cojin" data-name="Cojín navideño bordado" data-category="sofa" data-price="55000" data-image="assets/images/sofa-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Favorito</span><img src="assets/images/sofa-navidad.png" alt="Cojín navideño bordado"><span class="handmade-detail">Tela suave · Bordado navideño</span></button>
+              <div class="product-info"><p class="product-category">Sofá</p><h3>Cojín navideño bordado</h3><strong>$55.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
             </article>
 
-            <article class="product-card" data-id="runner" data-name="Camino de mesa navideño" data-category="mesa" data-price="60000" data-art="🎁">
-              <button class="product-visual open-product" type="button" aria-label="Ver camino de mesa navideño">
-                <span class="badge">Artesanal</span><span class="product-art product-art-runner">❄ ✦ ❄</span><span class="handmade-detail">Textil · Bordado navideño</span>
-              </button>
-              <div class="product-info"><p class="product-category">Mesa</p><h3>Camino de mesa navideño</h3><strong>$60.000</strong><div class="product-actions"><button class="btn btn-small add-cart" type="button">Agregar</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            <article class="product-card" data-id="silla" data-name="Decoración artesanal para silla" data-category="sillas" data-price="35000" data-image="assets/images/sillas-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Especial</span><img src="assets/images/sillas-navidad.png" alt="Decoración artesanal para silla"><span class="handmade-detail">Moños · Textil · Adornos</span></button>
+              <div class="product-info"><p class="product-category">Sillas</p><h3>Decoración artesanal para silla</h3><strong>$35.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
             </article>
 
-            <article class="product-card" data-id="tree-skirt" data-name="Falda tejida para pie de árbol" data-category="arbol" data-price="75000" data-art="🎄">
-              <button class="product-visual open-product" type="button" aria-label="Ver falda tejida para pie de árbol">
-                <span class="badge">Especial</span><span class="product-art product-art-tree">🎄</span><span class="handmade-detail">Tejida · Acabado festivo</span>
-              </button>
-              <div class="product-info"><p class="product-category">Árbol</p><h3>Falda tejida para pie de árbol</h3><strong>$75.000</strong><div class="product-actions"><button class="btn btn-small add-cart" type="button">Agregar</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            <article class="product-card" data-id="corona" data-name="Corona navideña artesanal para puerta" data-category="puertas" data-price="68000" data-image="assets/images/puerta-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Clásico</span><img src="assets/images/puerta-navidad.png" alt="Corona navideña artesanal para puerta"><span class="handmade-detail">Pino · Moño · Detalles dorados</span></button>
+              <div class="product-info"><p class="product-category">Puertas</p><h3>Corona navideña artesanal para puerta</h3><strong>$68.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            </article>
+
+            <article class="product-card" data-id="cocina" data-name="Set textil navideño para cocina" data-category="cocina" data-price="72000" data-image="assets/images/cocina-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Hecho a mano</span><img src="assets/images/cocina-navidad.png" alt="Set textil navideño para cocina"><span class="handmade-detail">Mantel · Toallas · Detalles bordados</span></button>
+              <div class="product-info"><p class="product-category">Cocina</p><h3>Set textil navideño para cocina</h3><strong>$72.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            </article>
+
+            <article class="product-card" data-id="bano" data-name="Set de toallas navideñas bordadas" data-category="bano" data-price="58000" data-image="assets/images/bano-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Nuevo</span><img src="assets/images/bano-navidad.png" alt="Set de toallas navideñas bordadas"><span class="handmade-detail">Algodón · Bordado artesanal</span></button>
+              <div class="product-info"><p class="product-category">Baño</p><h3>Set de toallas navideñas bordadas</h3><strong>$58.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
+            </article>
+
+            <article class="product-card" data-id="pie-arbol" data-name="Falda tejida para pie de árbol" data-category="arbol" data-price="75000" data-image="assets/images/pie-arbol-navidad.png">
+              <button class="product-visual open-product" type="button"><span class="badge">Artesanal</span><img src="assets/images/pie-arbol-navidad.png" alt="Falda tejida para pie de árbol"><span class="handmade-detail">Tejida · Acabado festivo</span></button>
+              <div class="product-info"><p class="product-category">Árbol</p><h3>Falda tejida para pie de árbol</h3><strong>$75.000</strong><div class="product-actions"><button class="btn btn-small open-product" type="button">Elegir opciones</button><button class="icon-btn open-product" type="button" aria-label="Ver detalles">♡</button></div></div>
             </article>
           </div>
 
@@ -152,7 +162,7 @@
 
   <footer class="site-footer" id="contacto">
     <div class="container footer-grid">
-      <div class="footer-brand"><h2>Navidad en Casa</h2><p>Decoraciones artesanales para llenar su hogar de magia.</p><div class="socials"><button class="social-button coming-soon" type="button" data-label="Instagram" aria-label="Instagram">◎</button><button class="social-button coming-soon" type="button" data-label="Facebook" aria-label="Facebook">f</button><button class="social-button" id="whatsappButton" type="button" aria-label="WhatsApp">◉</button></div></div>
+      <div class="footer-brand"><h2>Navidad en Casa</h2><p>Decoraciones artesanales para llenar su hogar de magia.</p><div class="socials"><button class="social-button coming-soon" type="button" data-label="Instagram">◎</button><button class="social-button coming-soon" type="button" data-label="Facebook">f</button><button class="social-button" id="whatsappButton" type="button">◉</button></div></div>
       <div><h3>Enlaces</h3><a class="js-scroll" href="#inicio">Inicio</a><a class="js-scroll" href="#productos">Productos</a><a class="js-scroll" href="#nosotros">Nosotros</a><a class="js-scroll" href="#contacto">Contacto</a></div>
       <div><h3>Ayuda</h3><button class="footer-action info-link" type="button" data-info="faq">Preguntas frecuentes</button><button class="footer-action info-link" type="button" data-info="shipping">Políticas de envío</button><button class="footer-action info-link" type="button" data-info="returns">Cambios y devoluciones</button><button class="footer-action info-link" type="button" data-info="terms">Términos y condiciones</button></div>
       <div><h3>Contacto</h3><p>WhatsApp: +57 300 000 0000</p><a href="mailto:navidadencasa@email.com">navidadencasa@email.com</a><p>Colombia</p></div>
@@ -162,7 +172,7 @@
 
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
-    <div class="drawer-header"><div><p class="section-kicker">Su selección</p><h2>Carrito</h2></div><button class="close-button" id="closeCart" type="button" aria-label="Cerrar carrito">×</button></div>
+    <div class="drawer-header"><div><p class="section-kicker">Su selección</p><h2>Carrito</h2></div><button class="close-button" id="closeCart" type="button">×</button></div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-empty" id="cartEmpty"><span>🎁</span><p>Su carrito está vacío.</p><button class="btn btn-primary" id="startShopping" type="button">Ver productos</button></div>
     <div class="cart-summary" id="cartSummary"><div><span>Total</span><strong id="cartTotal">$0</strong></div><button class="btn btn-primary full-width" id="checkoutButton" type="button">Finalizar pedido</button></div>
@@ -170,7 +180,7 @@
 
   <div class="modal-backdrop" id="modalBackdrop"></div>
   <section class="modal" id="appModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
-    <button class="close-button modal-close" id="closeModal" type="button" aria-label="Cerrar">×</button>
+    <button class="close-button modal-close" id="closeModal" type="button">×</button>
     <div id="modalContent"></div>
   </section>
 
